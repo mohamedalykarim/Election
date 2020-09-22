@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "338277631284",
+    "firebase_url": "https://election-8bf8e.firebaseio.com",
+    "project_id": "election-8bf8e",
+    "storage_bucket": "election-8bf8e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:338277631284:android:75b9f56327bbcb6701d161",
+        "android_client_info": {
+          "package_name": "com.mohalim.election"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "338277631284-3kokkjvckkjba564smd6kkdgqog2coj1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBHp9epH9IckCgJDmxnZT09jnJLXBvqXBk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "338277631284-3kokkjvckkjba564smd6kkdgqog2coj1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

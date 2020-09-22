@@ -1,7 +1,10 @@
 package com.mohalim.election.core.di.base;
 
 import android.app.Application;
+import android.content.Context;
 import android.content.ContextWrapper;
+
+import androidx.multidex.MultiDex;
 
 import com.mohalim.election.core.di.components.DaggerAppComponent;
 import com.mohalim.election.core.utils.Constants;
@@ -27,4 +30,9 @@ public class BaseApplication extends DaggerApplication {
     }
 
 
+    @Override
+    protected void attachBaseContext(Context base) {
+        super.attachBaseContext(base);
+        MultiDex.install(this);
+    }
 }
