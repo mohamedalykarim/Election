@@ -11,6 +11,7 @@ import androidx.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.mohalim.election.ui.electors.ElectorsActivity;
 import com.mohalim.election.core.di.base.BaseFragment;
@@ -45,19 +46,19 @@ public class MainFragment extends BaseFragment {
         binding = FragmentMainBinding.inflate(inflater, container,false);
         mViewModel = new ViewModelProvider(this, factory).get(MainViewModel.class);
 
-        binding.loginBtn.setOnClickListener(this);
-        return binding.getRoot();
-    }
-
-    @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-        if (!Prefs.getString(Constants.USER_NAME, "").equals("")){
+        if (!Prefs.getString(Constants.NAME, "").equals("")
+                && !Prefs.getString(Constants.USER_NAME, "").equals("")){
             Intent intent = new Intent(getActivity(), ElectorsActivity.class);
             getActivity().startActivity(intent);
             getActivity().finish();
         }
+
+        binding.loginBtn.setOnClickListener(this);
+        return binding.getRoot();
     }
+
+
+
 
     @Override
     public void onClick(View view) {
@@ -65,11 +66,12 @@ public class MainFragment extends BaseFragment {
 
 
         if (view.getId() == binding.loginBtn.getId()){
+            binding.progressBar.setVisibility(View.VISIBLE);
             errors = 0;
             loginValidate();
 
             if (errors == 0){
-                mViewModel.login(getContext(), binding.usernameET.getText().toString(), binding.passwordET.getText().toString());
+                mViewModel.login(getContext(), binding, binding.usernameET.getText().toString(), binding.passwordET.getText().toString());
             }
         }
     }

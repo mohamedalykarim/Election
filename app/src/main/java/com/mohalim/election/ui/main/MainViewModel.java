@@ -1,12 +1,17 @@
 package com.mohalim.election.ui.main;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
+import android.view.View;
 import android.widget.Toast;
 
 import androidx.lifecycle.ViewModel;
 
 import com.mohalim.election.core.repositories.Repository;
+import com.mohalim.election.databinding.FragmentMainBinding;
+import com.mohalim.election.ui.electors.ElectorsActivity;
 
 import javax.inject.Inject;
 
@@ -29,7 +34,7 @@ public class MainViewModel extends ViewModel {
     public MainViewModel() {
     }
 
-    public void login(Context context, String username, String password) {
+    public void login(Context context, FragmentMainBinding binding, String username, String password) {
         repository.login(username, password)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
@@ -41,12 +46,17 @@ public class MainViewModel extends ViewModel {
 
                     @Override
                     public void onComplete() {
-
+                        Toast.makeText(context, "تم تسجيل الدخول", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(context, ElectorsActivity.class);
+                        context.startActivity(intent);
+                        ((Activity)context).finish();
                     }
 
                     @Override
                     public void onError(@NonNull Throwable e) {
                         Toast.makeText(context, e.getMessage(), Toast.LENGTH_SHORT).show();
+                        binding.progressBar.setVisibility(View.GONE);
+
                     }
                 });
     }

@@ -25,7 +25,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
+            android:gravity="center_horizontal"
             android:text="قاعدة بيانات الناخبين عبدالراضي عربي علوان"
+            android:textColor="@color/colorPrimary"
+            android:textSize="30sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -40,14 +43,15 @@
             android:layout_marginEnd="32dp"
             android:layout_marginRight="32dp"
             android:layout_marginBottom="16dp"
-            android:background="#FFEB3B"
+            android:background="@color/colorPrimaryDark"
+            android:gravity="right"
             android:hint="اسم المستخدم"
             android:inputType="textPersonName"
             android:padding="10dp"
-            android:textColor="#F44336"
+            android:textColor="#dadada"
+            android:textColorHint="@color/colorAccent"
             app:layout_constraintBottom_toTopOf="@+id/passwordET"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent" />
 
         <EditText
@@ -59,11 +63,13 @@
             android:layout_marginEnd="32dp"
             android:layout_marginRight="32dp"
             android:layout_marginBottom="32dp"
-            android:background="#74FFCE"
+            android:background="@color/colorPrimaryDark"
+            android:gravity="right"
             android:hint="كلمة السر"
             android:inputType="textPassword"
             android:padding="10dp"
-            android:textColor="#F44336"
+            android:textColor="#dadada"
+            android:textColorHint="@color/colorAccent"
             app:layout_constraintBottom_toTopOf="@+id/loginBtn"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
@@ -79,6 +85,17 @@
             android:text="تسجيل الدخول"
             app:layout_constraintBottom_toBottomOf="@+id/imageView"
             app:layout_constraintStart_toStartOf="parent" />
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/passwordET"
+            app:layout_constraintStart_toEndOf="@+id/loginBtn"
+            app:layout_constraintTop_toBottomOf="@+id/passwordET" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
