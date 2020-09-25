@@ -25,6 +25,7 @@ import com.mohalim.election.core.utils.ViewModelProviderFactory;
 import com.mohalim.election.databinding.FragmentElectorsBinding;
 import com.mohalim.election.ui.main.MainActivity;
 import com.mohalim.election.ui.main.MainViewModel;
+import com.mohalim.election.ui.records.RecordsActivity;
 import com.pixplicity.easyprefs.library.Prefs;
 
 import javax.inject.Inject;
@@ -77,8 +78,11 @@ public class ElectorsFragment extends BaseFragment {
             binding.nameET.setText("");
             binding.phoneET.setText("");
             binding.familyET.setText("");
+            binding.regionET.setText("");
         }else if (view.getId() == binding.recordsBtn.getId()){
-            // Records
+            Intent intent = new Intent(getActivity(), RecordsActivity.class);
+            startActivity(intent);
+
         }else if (view.getId() == binding.newElectorBtn.getId()){
             validate();
             if (errors > 0) return;
@@ -88,6 +92,9 @@ public class ElectorsFragment extends BaseFragment {
             elector.setName(binding.nameET.getText().toString());
             elector.setPhone(binding.phoneET.getText().toString());
             elector.setFamily(binding.familyET.getText().toString());
+            elector.setRegion(binding.regionET.getText().toString());
+            elector.setResName(Prefs.getString(Constants.NAME, ""));
+            elector.setUsername(Prefs.getString(Constants.USER_NAME, ""));
 
             mViewModel.addNewElector(getActivity(),binding, elector);
         }
@@ -112,6 +119,11 @@ public class ElectorsFragment extends BaseFragment {
 
         if (binding.familyET.getText().toString().equals("")){
             binding.familyET.setError("يجب ادخال العائلة بشكل صحيح");
+            errors++;
+        }
+
+        if (binding.regionET.getText().toString().equals("")){
+            binding.familyET.setError("يجب ادخال المنطقة بشكل صحيح");
             errors++;
         }
     }

@@ -42,6 +42,11 @@ public class ElectorsViewModel extends ViewModel {
                     @Override
                     public void onComplete() {
                         Toast.makeText(context, "بالتوفيق، تم اضافة الناخب بنجاح ...", Toast.LENGTH_SHORT).show();
+                        binding.idET.setText("");
+                        binding.nameET.setText("");
+                        binding.phoneET.setText("");
+                        binding.familyET.setText("");
+                        binding.regionET.setText("");
                         binding.loading.setVisibility(View.GONE);
                     }
 

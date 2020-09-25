@@ -71,7 +71,7 @@ public class MainFragment extends BaseFragment {
             loginValidate();
 
             if (errors == 0){
-                mViewModel.login(getContext(), binding, binding.usernameET.getText().toString(), binding.passwordET.getText().toString());
+                mViewModel.login(getContext(), binding, binding.usernameET.getText().toString().trim(), binding.passwordET.getText().toString().trim());
             }
         }
     }

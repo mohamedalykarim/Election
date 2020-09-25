@@ -26,7 +26,7 @@
             android:layout_marginStart="32dp"
             android:layout_marginLeft="32dp"
             android:layout_marginBottom="8dp"
-            android:text="تسجيل ناخب جديد"
+            android:text="تسجيل"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
@@ -85,7 +85,7 @@
             android:background="@color/colorPrimaryDark"
             android:gravity="right"
             android:hint="الاسم"
-            android:inputType="textShortMessage"
+            android:inputType="text"
             android:padding="10dp"
             android:textColor="#dadada"
             android:textColorHint="@color/colorAccent"
@@ -127,7 +127,28 @@
             android:background="@color/colorPrimaryDark"
             android:gravity="right"
             android:hint="العائلة"
-            android:inputType="textShortMessage"
+            android:inputType="text"
+            android:padding="10dp"
+            android:textColor="#dadada"
+            android:textColorHint="@color/colorAccent"
+            app:layout_constraintBottom_toTopOf="@+id/regionET"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="@+id/imageView2" />
+
+        <EditText
+            android:id="@+id/regionET"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginLeft="32dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginRight="32dp"
+            android:layout_marginBottom="32dp"
+            android:background="@color/colorPrimaryDark"
+            android:gravity="right"
+            android:hint="المنطقة"
+            android:inputType="text"
             android:padding="10dp"
             android:textColor="#dadada"
             android:textColorHint="@color/colorAccent"
@@ -186,12 +207,11 @@
             android:id="@+id/loading"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginLeft="32dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="4dp"
             android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/imageView2">
+            app:layout_constraintTop_toBottomOf="@+id/regionET">
 
             <ProgressBar
                 android:id="@+id/progressBar2"
